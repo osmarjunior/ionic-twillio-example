@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card padding>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Server Host + Port</ion-label>
+        <ion-input [(ngModel)]="server_add" placeholder="http://localhost:8080" value="http://localhost:8080"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="name"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <div class="ion-padding">
+  
+      <button ion-button (click)="connectTele()">
+        CONNECT
+      </button>
+     
+    </div>
+  </ion-card>
+  
+  <!--<ion-card padding>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Client Messsage</ion-label>
+        <ion-input [(ngModel)]="text_input" placeholder="Enter your message"></ion-input>
+        
+      </ion-item>
+      
+    </ion-list>
+  
+    <div class="ion-padding">
+  
+      <sas-button label="Iniciar Atendimento" [isDisabled]="pageModel?.attendance?.status !== STATUS_ATTENDANCE.CHECK_IN"></sas-button>
+
+      <button ion-button (click)="send(text_input)">
+        SEND
+      </button>
+     
+    </div>
+  </ion-card>
+  
+    
+  <ion-card padding>
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        
+        <ion-item>
+          <ion-label position="stacked">Server Response</ion-label>
+          <ion-textarea readonly="true" value="{{ server_response }}"></ion-textarea>
+        </ion-item>
+      </ion-list>
+  </ion-card> -->
+</ion-content>

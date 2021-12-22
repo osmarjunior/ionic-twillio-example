@@ -1,0 +1,7 @@
+{
+  "name": "socketclientapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Twillllio Video
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll="false">
+	<div class="call-buttons inCallUI">
+		<ion-button round icon-only outline color="light" class="button-incall" (click)="flip()" [disabled]="loading">
+      <ion-icon name="camera-reverse"></ion-icon>
+    </ion-button>
+		<ion-button round icon-only outline color="danger" class="button-incall" (click)="leaveRoom()" [disabled]="!activeRoom">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+		<ion-button round icon-only outline color="light" class="button-incall" (click)="mute()" [disabled]="loading">
+			<ion-icon name="mic-off" *ngIf="!muted"></ion-icon>
+			<ion-icon name="mic" *ngIf="muted"></ion-icon>
+		</ion-button>
+    <ion-button round icon-only outline color="light" class="button-incall" (click)="openChat()" [disabled]="!activeConversation">
+      <ion-icon name="chatbubbles-outline"></ion-icon>
+    </ion-button>
+	</div>
+	<div class="videos inCallUI">
+    <ion-spinner class="centered large" *ngIf="loading" name="dots"></ion-spinner>
+		<div id="remote-media" #remoteMedia></div>
+	</div>
+</ion-content>
