@@ -10,10 +10,6 @@ import { Conversation } from '@twilio/conversations/lib/conversation';
 import { DeviceService } from '../services/device.service';
 import { Subscription } from 'rxjs';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
-import { debounceTime } from 'rxjs/operators';
-
-//declare var cordova: any
-
 @Component({
   selector: 'app-home',
   templateUrl: 'video.page.html',
@@ -59,14 +55,12 @@ export class VideoPage implements OnInit {
   async ngOnInit() {
 
     /*this.subscription = */
-    console.log('ngOnInit1');
     await this.deviceService
         .getDeviceOptions().then
         (async deviceListPromise => {
           this.devices = await deviceListPromise;
           this.handleDeviceAvailabilityChanges();
         });
-        console.log('ngOnInit2');
   }
 
   private handleDeviceAvailabilityChanges() {
@@ -130,7 +124,7 @@ export class VideoPage implements OnInit {
       if (cameraGrant === this.diagnostic.permissionStatus.GRANTED && microphoneGrant === this.diagnostic.permissionStatus.GRANTED) {
         this.joinVideoChatRoom();
       } else {
-        console.log('Você precisa dar permissão para usar a camera e microfone!!');
+        alert('Você precisa dar permissão para usar a camera e microfone!!');
       }
     }
   }

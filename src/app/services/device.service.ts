@@ -29,7 +29,6 @@ export class DeviceService {
         if (navigator && navigator['permissions']) {
             try {
                 const result = await navigator['permissions'].query({ name: 'camera' });
-                alert('result ' + result);
                 if (result) {
                     if (result.state === 'granted') {
                         return true;

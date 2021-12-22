@@ -40,8 +40,6 @@ export class QrScannerPage implements OnInit {
 
   scan() {
     this.scanned = false;
-    //(window.document.querySelector('ion-app') as HTMLElement).classList.add('cameraView');
-    //window.document.body.style.backgroundColor = 'transparent';
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {
         if (status.authorized) {
@@ -85,6 +83,5 @@ export class QrScannerPage implements OnInit {
     this.scanSubscription = null;
     this.preview(false);
     this.qrScanner.hide();
-    //this.qrScanner.destroy();
   }
 }

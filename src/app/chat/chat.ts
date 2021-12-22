@@ -100,13 +100,7 @@ export class Chat {
     }
 
     ionViewDidEnter() {
-        //get message list
         this.getMsg();
-
-        // Subscribe to received  new message events
-        /*this.events.subscribe('chat:received', msg => {
-          this.pushNewMsg(msg);
-        })*/
     }
 
     onFocus() {
@@ -120,37 +114,6 @@ export class Chat {
      * @returns {Promise<ChatMessage[]>}
      */
     getMsg() {
-
-        /*this.msgList = [
-            {
-                messageId: Date.now().toString(),
-                userId: '210000198410281948',
-                userName: 'User1',
-                userAvatar: './assets/to-user.jpg',
-                toUserId: '140000198202211138',
-                time: Date.now(),
-                message: 'Hi',
-                status: 'success'
-            },
-            {
-                messageId: Date.now().toString(),
-                userId: '140000198202211138',
-                userName: 'User2',
-                userAvatar: './assets/to-user.jpg',
-                toUserId: '210000198410281948',
-                time: Date.now(),
-                message: 'Hello',
-                status: 'success'
-            }
-        ];*/
-
-        // Get mock message list
-        /*return this.chatService
-        .getMsgList()
-        .subscribe(res => {
-          this.msgList = res;
-          this.scrollToBottom();
-        });*/
     }
 
     /**
@@ -172,21 +135,12 @@ export class Chat {
             status: 'pending'
         };
 
-        //this.pushNewMsg(newMsg);
         this.conversation.sendMessage(this.editorMsg);
         this.editorMsg = '';
 
         if (!this.showEmojiPicker) {
             this.focus();
         }
-
-        /*this.chatService.sendMsg(newMsg)
-        .then(() => {
-          let index = this.getMsgIndexById(id);
-          if (index !== -1) {
-            this.msgList[index].status = 'success';
-          }
-        })*/
     }
 
     /**
@@ -194,14 +148,6 @@ export class Chat {
      * @param msg
      */
     pushNewMsg(msg: ChatMessage) {
-        const userId = this.user.id,
-            toUserId = this.toUser.id;
-        // Verify user relationships
- /*       if (msg.userId === userId && msg.toUserId === toUserId) {
-            this.msgList.push(msg);
-        } else if (msg.toUserId === userId && msg.userId === toUserId) {
-            this.msgList.push(msg);
-        }*/
         this.msgList.push(msg);
         this.scrollToBottom();
     }
